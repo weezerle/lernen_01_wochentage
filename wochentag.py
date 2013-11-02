@@ -1,5 +1,6 @@
-print "Weekdaypruefong"
-print "Bitte eine Jahreszahl eingeben:"
+## Welcher Wochentag?
+#
+
 wochentage = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
 monatstage = [31,28,31,30,31,30,31,31,30,31,30,31]
 
@@ -56,7 +57,23 @@ def monatstagesumme(tag,monat,jahr):
 
     return anzahlmonatstage
 
+## Ueberpruefung ob Schaltjhr oder nicht
 
+def istSchaltjahr(jahreszahl):
+    if jahreszahl%4==0:
+        if jahreszahl%100==0 and not jahreszahl%400==0:
+            print jahreszahl, "ist kein Schaltjahr!"
+            return False
+        else:
+            print jahreszahl, "ist ein Schaltjahr!"
+            return True
+    else:
+        print jahreszahl, "sollte kein Schaltjahr sein."
+        return False
+
+## Hier wird das zu pruefende Datum abgefragt
+
+print "Bitte eine Jahreszahl eingeben:"
 doof = 0
 while doof == 0:
     try:
@@ -83,22 +100,7 @@ while doof == 0:
     except ValueError:
         print "Bist Du zu doof fuer ne Zahl zu erkennen?"
 
-def istSchaltjahr(jahreszahl):
-    if jahreszahl%4==0:
-        if jahreszahl%100==0 and not jahreszahl%400==0:
-            print jahreszahl, "ist kein Schaltjahr!"
-            return False
-        else:
-            print jahreszahl, "ist ein Schaltjahr!"
-            return True
-    else:
-        print jahreszahl, "sollte kein Schaltjahr sein."
-        return False
+## Hier werden dann die obigen Funktionen aufgerufen
 
-
-# istSchaltjahr(testjahr)
 print jahrestag(testtag, testmonat, testjahr)
 bestimmung(jahrestagessumme(testtag, testmonat, testjahr))
-
-# for tach in wochentage:
-#    print tach
