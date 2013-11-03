@@ -4,6 +4,35 @@
 wochentage = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
 monatstage = [31,28,31,30,31,30,31,31,30,31,30,31]
 
+## Hier wird das zu pruefende Datum abgefragt
+
+print "Bitte eine Jahreszahl eingeben:"
+doof = 0
+while doof == 0:
+    try:
+        testjahr = int(raw_input('> '))
+        doof=1
+    except ValueError:
+        print "Bitte eine Jahreszahl eingeben."
+
+print "Bitte eine Monat eingeben:"
+doof = 0
+while doof == 0:
+    try:
+        testmonat = int(raw_input('> '))
+        doof=1
+    except ValueError:
+        print "Bitte eine Monatszahl eingeben."
+
+print "Bitte einen Tag (Zahl) eingeben:"
+doof = 0
+while doof == 0:
+    try:
+        testtag = int(raw_input('> '))
+        doof=1
+    except ValueError:
+        print "Bitte eine Tageszahl eingeben."
+
 def bestimmung(anzahl):
     if anzahl%7 == 1:
         print "Montag"
@@ -63,39 +92,10 @@ def istSchaltjahr(jahreszahl):
         # print jahreszahl, "sollte kein Schaltjahr sein."
         return False
 
-
-## Hier wird das zu pruefende Datum abgefragt
-
-print "Bitte eine Jahreszahl eingeben:"
-doof = 0
-while doof == 0:
-    try:
-        testjahr = int(raw_input('> '))
-        doof=1
-    except ValueError:
-        print "Bitte eine Jahreszahl eingeben."
-
-print "Bitte eine Monat eingeben:"
-doof = 0
-while doof == 0:
-    try:
-        testmonat = int(raw_input('> '))
-        doof=1
-    except ValueError:
-        print "Bitte eine Monatszahl eingeben."
-
-print "Bitte einen Tag (Zahl) eingeben:"
-doof = 0
-while doof == 0:
-    try:
-        testtag = int(raw_input('> '))
-        doof=1
-    except ValueError:
-        print "Bitte eine Tageszahl eingeben."
-
 ## Hier werden dann die obigen Funktionen aufgerufen
 
 print "Summe vor Bestimmung:", jahrestagessumme(testtag, testmonat, testjahr)
 bestimmung(jahrestagessumme(testtag, testmonat, testjahr))
 print "Werte:", testtag, testmonat, testjahr
+
 
