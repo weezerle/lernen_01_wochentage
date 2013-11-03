@@ -18,10 +18,9 @@ def bestimmung(anzahl):
     elif anzahl%7 == 6:
         print "Samstag"
     elif anzahl%7 == 0:
-        print "Tag des Herren"
+        print "Sonntag"
     else:
-        print "Tag der Erkenntnis"
-
+        print "Das darf nicht sein."
 
 def jahrestagessumme(tag,monat,jahr):
     anzahljahrestage=0
@@ -40,15 +39,8 @@ def monatstagesumme(tag,monat,jahr):
     anzahlmonatstage=0
 
     for i in range(monat-1):
-#        print "egal", monatstage[i]
         anzahlmonatstage+=monatstage[i]
 
-#    if monat > 2:
-#        if istSchaltjahr(jahr):
-#            anzahlmonatstage+=1
-#    elif monat == 2 and tag == 29:
-#        if istSchaltjahr(jahr):
-#            anzahlmonatstage+=1
     if anzahlmonatstage >= 60:
         if istSchaltjahr(jahr):
             anzahlmonatstage+=1
@@ -56,6 +48,7 @@ def monatstagesumme(tag,monat,jahr):
         print "nix"
 
     return anzahlmonatstage
+
 
 ## Ueberpruefung ob Schaltjhr oder nicht
 
@@ -71,20 +64,8 @@ def istSchaltjahr(jahreszahl):
         print jahreszahl, "sollte kein Schaltjahr sein."
         return False
 
-## Hier wird das zu pruefende Datum abgefragt
-"""
-## Das ist irgendwei voelliger Humbug, aber ich werds mir spaeter nochmal ansehen.
 
-variablenliste = ['testtag','testmonat','testjahr']
-for i in range(0,3):
-	print "tag<enter>monat<enter>jahr<enter>"
-	doof = 0
-	try:
-		variablenliste[i] = int(raw_input('> '))
-		doof = 1
-	except ValueError:
-		print "Bitte eine Zahl eingeben."
-"""
+## Hier wird das zu pruefende Datum abgefragt
 
 print "Bitte eine Jahreszahl eingeben:"
 doof = 0
