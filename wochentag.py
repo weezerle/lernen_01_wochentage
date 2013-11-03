@@ -73,7 +73,8 @@ def istSchaltjahr(jahreszahl):
 
 ## Hier wird das zu pruefende Datum abgefragt
 """
-## Das ist irgendwei voelliger Humbug, aber ich werds mir spaeter ncohmal ansehen.
+## Das ist irgendwei voelliger Humbug, aber ich werds mir spaeter nochmal ansehen.
+
 variablenliste = ['testtag','testmonat','testjahr']
 for i in range(0,3):
 	print "tag<enter>monat<enter>jahr<enter>"
