@@ -29,24 +29,23 @@ def jahrestagessumme(tag,monat,jahr):
             anzahljahrestage+=365
         else:
             anzahljahrestage+=366
-    return anzahljahrestage+jahrestag(tag,monat,jahr)
+    return anzahljahrestage+tag+monatstagesumme(tag,monat,jahr)
+    #return anzahljahrestage+jahrestag(tag,monat,jahr)
 
+"""
 def jahrestag(tag,monat,jahr):
     return tag + monatstagesumme(tag,monat,jahr)
-    
+"""
+
 def monatstagesumme(tag,monat,jahr):
-    print tag,'.',monat,'.',jahr
+    #print tag,'.',monat,'.',jahr
     anzahlmonatstage=0
 
     for i in range(monat-1):
         anzahlmonatstage+=monatstage[i]
-
     if anzahlmonatstage >= 60:
         if istSchaltjahr(jahr):
             anzahlmonatstage+=1
-    else:
-        print "nix"
-
     return anzahlmonatstage
 
 
@@ -55,13 +54,13 @@ def monatstagesumme(tag,monat,jahr):
 def istSchaltjahr(jahreszahl):
     if jahreszahl%4==0:
         if jahreszahl%100==0 and not jahreszahl%400==0:
-            print jahreszahl, "ist kein Schaltjahr!"
+            # print jahreszahl, "ist kein Schaltjahr!"
             return False
         else:
-            print jahreszahl, "ist ein Schaltjahr!"
+            # print jahreszahl, "ist ein Schaltjahr!"
             return True
     else:
-        print jahreszahl, "sollte kein Schaltjahr sein."
+        # print jahreszahl, "sollte kein Schaltjahr sein."
         return False
 
 
@@ -74,7 +73,7 @@ while doof == 0:
         testjahr = int(raw_input('> '))
         doof=1
     except ValueError:
-        print "Bist Du zu doof fuer ne Zahl zu erkennen?"
+        print "Bitte eine Jahreszahl eingeben."
 
 print "Bitte eine Monat eingeben:"
 doof = 0
@@ -83,7 +82,7 @@ while doof == 0:
         testmonat = int(raw_input('> '))
         doof=1
     except ValueError:
-        print "Bist Du zu doof fuer ne Zahl zu erkennen?"
+        print "Bitte eine Monatszahl eingeben."
 
 print "Bitte einen Tag (Zahl) eingeben:"
 doof = 0
@@ -92,9 +91,11 @@ while doof == 0:
         testtag = int(raw_input('> '))
         doof=1
     except ValueError:
-        print "Bist Du zu doof fuer ne Zahl zu erkennen?"
+        print "Bitte eine Tageszahl eingeben."
 
 ## Hier werden dann die obigen Funktionen aufgerufen
 
-print jahrestag(testtag, testmonat, testjahr)
+print "Summe vor Bestimmung:", jahrestagessumme(testtag, testmonat, testjahr)
 bestimmung(jahrestagessumme(testtag, testmonat, testjahr))
+print "Werte:", testtag, testmonat, testjahr
+
