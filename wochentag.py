@@ -53,11 +53,13 @@ def bestimmung(anzahl):
 
 def jahrestagessumme(tag,monat,jahr):
     anzahljahrestage=0
-    for i in range(1900,jahr-1):
+    for i in range(1900,jahr): # -1 entfernt
         if istSchaltjahr(i):
-            anzahljahrestage+=365
-        else:
             anzahljahrestage+=366
+#            print "Schaltjahr: ", i
+        else:
+            anzahljahrestage+=365
+#            print "Kein Schaltjahr: ", i
     return anzahljahrestage+tag+monatstagesumme(tag,monat,jahr)
     #return anzahljahrestage+jahrestag(tag,monat,jahr)
 
@@ -84,18 +86,22 @@ def istSchaltjahr(jahreszahl):
     if jahreszahl%4==0:
         if jahreszahl%100==0 and not jahreszahl%400==0:
             # print jahreszahl, "ist kein Schaltjahr!"
+#            print "SJ, 4/100 and not 400 Regel, no: ", jahreszahl
             return False
         else:
             # print jahreszahl, "ist ein Schaltjahr!"
+#            print "SJ, 4/100 and not 400 Regel, ja: ", jahreszahl
             return True
     else:
         # print jahreszahl, "sollte kein Schaltjahr sein."
+#        print "SJ, not 4, no: ", jahreszahl
         return False
 
 ## Hier werden dann die obigen Funktionen aufgerufen
 
-print "Summe vor Bestimmung:", jahrestagessumme(testtag, testmonat, testjahr)
+# print "Summe vor Bestimmung:", jahrestagessumme(testtag, testmonat, testjahr)
+print "Der ", testtag,".",testmonat,".",testjahr," ist ein:"
 bestimmung(jahrestagessumme(testtag, testmonat, testjahr))
-print "Werte:", testtag, testmonat, testjahr
+# print "Werte:", testtag, testmonat, testjahr
 
 
